@@ -9,6 +9,7 @@
   "author": "FxM",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.14.0"
+    "express": "^4.14.0",
+    "winston": "^2.2.0"
   }
 }

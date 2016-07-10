@@ -25,30 +25,8 @@
   <script src="../src/jquery.fancytree.dnd.js" type="text/javascript"></script>
   <script src="../src/jquery.fancytree.edit.js" type="text/javascript"></script>
   <script src="../src/jquery.fancytree.glyph.js" type="text/javascript"></script>
-  <script src="../src/jquery.fancytree.table.js" type="text/javascript"></script>
+
   <script src="../src/jquery.fancytree.wide.js" type="text/javascript"></script>
-
-<!-- (Irrelevant source removed.) -->
-
-<style type="text/css">
-  /* Define custom width and alignment of table columns */
-  #treetable {
-    table-layout: fixed;
-  }
-  #treetable tr td:nth-of-type(1) {
-    text-align: right;
-  }
-  #treetable tr td:nth-of-type(2) {
-    text-align: center;
-  }
-  #treetable tr td:nth-of-type(3) {
-    min-width: 100px;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-  }
-</style>
-
 
 <!-- Add code to initialize the tree when the document is loaded: -->
 <script type="text/javascript">
@@ -112,82 +90,18 @@
         data.result = {url: "ajax-sub2.json", debugDelay: 1000};
       }
     });
-
-    $("#treetable").fancytree({
-      extensions: ["dnd", "edit", "glyph", "table"],
-      checkbox: true,
-      dnd: {
-        focusOnClick: true,
-        dragStart: function(node, data) { return true; },
-        dragEnter: function(node, data) { return true; },
-        dragDrop: function(node, data) { data.otherNode.copyTo(node, data.hitMode); }
-      },
-      glyph: glyph_opts,
-      source: {url: "ajax-tree-taxonomy.json", debugDelay: 1000},
-      table: {
-        checkboxColumnIdx: 1,
-        nodeColumnIdx: 2
-      },
-
-      activate: function(event, data) {
-      },
-      lazyLoad: function(event, data) {
-        data.result = {url: "ajax-sub2.json", debugDelay: 1000};
-      },
-      renderColumns: function(event, data) {
-        var node = data.node,
-          $tdList = $(node.tr).find(">td");
-        $tdList.eq(0).text(node.getIndexHier());
-        $tdList.eq(3).text(!!node.folder);
-      }
-    });
+    
   });
 </script>
-
-<!-- (Irrelevant source removed.) -->
 
 </head>
 
 <body>
-  <div class="panel panel-default">
-    <div class="panel-heading">
-      <h1>Example: Bootstrap theme</h1>
-    </div>
-    <div class="panel-body">
-      <p>
-        The 'glyph' extension adds <code>icon-...</code> classes to the
-        node's <code>span</code> tags, so scalable vector icons as provided by
-        <a href="http://fortawesome.github.io/Font-Awesome/" class="external" target="_blank">Font Awesome</a> or <a href="http://getbootstrap.com/components/" class="external" target="_blank">Bootstrap Glyphicons</a> can be used.
-      </p>
-      <p>
-        The theme defines some colors from bootstrap. To change it, run
-        <a href="https://github.com/mar10/fancytree/wiki/HowtoContribute">grunt dev</a> and edit the
-        <a href="https://github.com/mar10/fancytree/blob/master/src/skin-bootstrap/ui.fancytree.less" class="external" target="_blank">LESS definition</a>.
-      </p>
-      <p>
-        <b>Status</b>: alpha
-      </p>
-    </div>
-  </div>
 
-  <p>
-    Font size: <span id="curSize"></span>
-    <input id="fontSize" type="number" min="4" max="48" value="10"> pt
-  </p>
-
-  <h3> Plain tree </h3>
-
-  <p id="plainTreeStyles">
-    <b>Add container class:</b><br>
-<!--
-    <label><input type="checkbox" data-class="fancytree-colorize-hover"> fancytree-colorize-hover</label>
--->
-    <label><input type="checkbox" data-class="fancytree-colorize-selected"> fancytree-colorize-selected</label>
-  </p>
 
   <div class="panel panel-default">
     <div class="panel-heading">
-      <b>Taxonomy</b>
+      <b>Cosmos</b>
     </div>
     <div id="tree" class="panel-body fancytree-colorize-hover fancytree-fade-expander">
     </div>
@@ -195,36 +109,10 @@
       <button id="btnExpandAll" class="btn btn-xs btn-primary">Expand all</button>
       <button id="btnCollapseAll" class="btn btn-xs btn-warning">Collapse all</button>
     </div>
-  </div>
-
-  <h3> Table tree </h3>
-
-  <p id="bootstrapTableStyles">
-    <b>Add table class:</b><br>
-    <label><input type="checkbox" data-class="table-bordered"> table-bordered</label>
-    <label><input type="checkbox" data-class="table-condensed" checked="checked"> table-condensed</label>
-    <label><input type="checkbox" data-class="table-striped" checked="checked"> table-striped</label>
-    <label><input type="checkbox" data-class="table-hover" checked="checked"> table-hover</label>
-    <label><input type="checkbox" data-class="table-responsive"> table-responsive</label>
-    <label><input type="checkbox" data-class="fancytree-colorize-selected"> fancytree-colorize-selected</label>
-  </p>
+  </div> 
 
   <table id="treetable" class="table table-condensed table-hover table-striped fancytree-fade-expander">
-    <colgroup>
-      <col width="80px"></col>
-      <col width="30px"></col>
-      <col width="*"></col>
-      <col width="100px"></col>
-      <col width="100px"></col>
-      <col width="100px"></col>
-    </colgroup>
-    <thead>
-      <tr> <th></th> <th></th> <th>Classification</th> <th>Folder</th> <th></th> <th></th> </tr>
-    </thead>
-    <tbody>
-      <tr> <td></td> <td></td> <td></td> <td></td> <td></td> <td></td> </tr>
-    </tbody>
-  </table>
+  
 
 
   <!-- (Irrelevant source removed.) -->
