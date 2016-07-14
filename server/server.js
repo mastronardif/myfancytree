@@ -27,20 +27,26 @@ app.get('/about', function(req, res) {
 app.get('/my', function(req, res) {
     res.render('pages/my');
 });
+app.get('/basicsearch/', function(req, res) {
+    res.render('basicsearch/new');
+});
 
 
 var COMMENTS_FILE = path.join(__dirname, 'comments.json');
 
 //app.use(express.static(path.join(__dirname, '/client/src')));
 //app.use('/js', express.static(__dirname + 'client/js/'));
-//app.use('/js',express.static('./client/js'));
-  
+app.use('/js',express.static('./client/js')); 
 app.use('/src',express.static('./client/src'));
 app.use('/src', express.static(__dirname + '/client/src/'));
 console.log(__dirname+'/client/src');
 
 app.use('/scripts',express.static('./client/js'));
 app.use('/css',express.static('./client/css'));
+app.use('/styles',express.static('./client/css/styles'));
+
+app.use('/images',express.static('./client/images'));
+
 app.use(express.static('client/react/'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
