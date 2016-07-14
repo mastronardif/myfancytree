@@ -1,3 +1,3 @@
 # myfancytree
 reviewing FancyTree.js
-added ing ejs for templating
+added ejs for templating
