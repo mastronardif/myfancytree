@@ -11,12 +11,31 @@ const util = require('util');
  */
 var app = express();
 
+// set the view engine to ejs
+app.set('view engine', 'ejs');
+
+// index page 
+app.get('/', function(req, res) {
+    res.render('pages/index');
+});
+
+// about page 
+app.get('/about', function(req, res) {
+    res.render('pages/about');
+});
+
+app.get('/my', function(req, res) {
+    res.render('pages/my');
+});
+
+
 var COMMENTS_FILE = path.join(__dirname, 'comments.json');
 
 //app.use(express.static(path.join(__dirname, '/client/src')));
 //app.use('/js', express.static(__dirname + 'client/js/'));
 //app.use('/js',express.static('./client/js'));
-  app.use('/src',express.static('./client/src'));
+  
+app.use('/src',express.static('./client/src'));
 app.use('/src', express.static(__dirname + '/client/src/'));
 console.log(__dirname+'/client/src');
 
