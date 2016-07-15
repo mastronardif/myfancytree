@@ -16,6 +16,16 @@
       <div class="container page-content">
         <form action="/basicsearch/submit" method="GET" enctype="{enctype}">
             <h1>Search Menu Items</h1>
+            
+            <p><%= tagline %></p>
+            <ul>
+    <% drinks.forEach(function(drink) { %>
+        <li><%= drink.name %> - <%= drink.drunkness %></li>
+    <% }); %>
+</ul>
+            
+            
+            
               <!-- classes for input is just for testing  -->
               <input type="text" name="search" class="form-control input-with-feedback search control-label col col-lg-3" placeholder="Search">
             <button class="feeling-button" type="submit">Search</button>
