@@ -57,7 +57,9 @@ app.get('/basicsearch/submit', function(req, res) {
 app.all('/ping', function(req, res) {
     console.log(req.query);
     console.log(JSON.stringify(req.body) );
-    res.send('echo '+ JSON.stringify(req.query) + JSON.stringify(req.body));
+    var results = {'query': req.query, 'body':req.body};
+    res.json(results);
+    //res.send('echo '+ JSON.stringify(req.query) + JSON.stringify(req.body));
 });
 
 var COMMENTS_FILE = path.join(__dirname, 'comments.json');
